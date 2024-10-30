@@ -55,18 +55,24 @@ const CompetitionPage = () => {
             <Navbar />
             {/* "Be The Face" Section */}
             <section className="text-center p-8">
-                <h2
-                    className="text-5xl md:text-6xl font-bold mb-6"
-                    style={{ fontFamily: "Poppins" }}
-                >
-                    Be The Face Of Bean-You
-                </h2>
-                <p className="text-lg md:text-xl mb-6">
-                    Immerse yourself in captivating conversations,
-                    thought-provoking interviews, and inspiring narratives.
-                    Discover, engage, and be inspired! Join our competition to
-                    become the next Face of BeanYou.com across all platforms.
-                </p>
+                <div className="flex flex-col items-center">
+                    <h2
+                        className="text-5xl md:text-6xl font-bold my-7"
+                        style={{ fontFamily: "Poppins" }}
+                    >
+                        Be The Face Of Bean-You
+                    </h2>
+                    <p
+                        className="text-lg md:text-xl mt-6 mb-12 w-[80%] md:w-[60%]"
+                        style={{ fontFamily: "Poppins" }}
+                    >
+                        Immerse yourself in captivating conversations,
+                        thought-provoking interviews, and inspiring narratives.
+                        Discover, engage, and be inspired! Join our competition
+                        to become the next Face of BeanYou.com across all
+                        platforms.
+                    </p>
+                </div>
 
                 {/* Fixed Images */}
                 <div className="flex flex-wrap justify-center items-center space-x-4 mb-6">
