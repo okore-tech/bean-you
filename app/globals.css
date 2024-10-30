@@ -6,6 +6,7 @@
 /* Font setup */
 body {
     font-family: "Poppins", Arial, sans-serif;
+    overscroll-behavior: none;
 }
 
 :root {

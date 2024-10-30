@@ -11,8 +11,8 @@ const Navbar = () => {
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
-        <header className="relative w-full bg-[#6C360C] text-white transition duration-300">
-            <div className="max-w-7xl mx-auto px-3 py-3 flex items-center justify-between">
+        <header className="relative w-full bg-[#6C360C] text-white transition duration-300 flex justify-center">
+            <div className="w-full px-6 md:px-20 py-3 flex items-center justify-between">
                 <Link href="/">
                     <Image
                         src="/logo-removebg-preview.png"
@@ -23,7 +23,7 @@ const Navbar = () => {
                     />
                 </Link>
                 {/* Navigation Links for Large Screens */}
-                <nav className="hidden lg:flex space-x-8">
+                <nav className="hidden lg:flex gap-16">
                     <Link
                         href="/"
                         className="font-semibold text-lg hover:text-[#FF5722] transition duration-300"
@@ -54,7 +54,7 @@ const Navbar = () => {
             </div>
             {/* Side Menu for Small Screens */}
             <nav
-                className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ${
+                className={`fixed top-0 left-0 z-50 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ${
                     isOpen ? "translate-x-0" : "-translate-x-full"
                 } lg:hidden`}
             >

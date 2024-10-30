@@ -3,6 +3,8 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "@/components/ui/MobileNavBar";
+import Footer from "../footer/page";
 
 const CompetitionPage = () => {
     const slides = useMemo(
@@ -50,6 +52,7 @@ const CompetitionPage = () => {
 
     return (
         <div className="bg-gradient-to-b from-[#0f100f] to-[#6C360C] text-white min-h-screen">
+            <Navbar />
             {/* "Be The Face" Section */}
             <section className="text-center p-8">
                 <h2
@@ -182,6 +185,8 @@ const CompetitionPage = () => {
                     ))}
                 </div>
             </section>
+
+            <Footer />
         </div>
     );
 };
