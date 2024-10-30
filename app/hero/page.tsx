@@ -49,7 +49,7 @@ export default function HeroPage() {
                             src="/image-coffee.png"
                             alt="Coffee splash background"
                             fill
-                            className="object-cover w-full min-w-full left-0 bottom-0 xs:hidden"
+                            className="object-cover w-full min-w-full left-0 bottom-0 hidden sm:flex"
                             priority
                         />
                         <Image
@@ -63,7 +63,7 @@ export default function HeroPage() {
 
                     {/* Hero Text */}
                     <div
-                        className={`text-left relative flex flex-col items-end md:items-start ${poppins.className} md:h-full px-2 lg:pt-40`}
+                        className={`text-left relative flex flex-col items-end md:items-start ${poppins.className} md:h-full px-4 lg:pt-40 mt-[100px] md:mt-0`}
                     >
                         <div className="hero__text__wrapper">
                             <h1 className="text-5xl md:text-7xl lg:text-[100px] lg:leading-none font-bold mb-4">
