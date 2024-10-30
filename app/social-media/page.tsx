@@ -75,92 +75,108 @@ export default function SocialMediaPage() {
     };
 
     return (
-        <main className="flex flex-col items-center justify-center bg-[#895737]">
+        <main className="flex flex-col items-center justify-center bg-[#FFFDD0]">
             {" "}
-            {/* Set the background color here */}
             <Navbar />
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-[#F86A4A]">
-                Enjoy Your Coffee!
-            </h1>
-            <p className="text-lg md:text-xl text-center mb-8">
-                Follow us on our social media platforms to stay updated.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {socialMediaLinks.map((social) => (
-                    <div
-                        key={social.name}
-                        className="flex flex-col items-center bg-white p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
-                    >
-                        <Link href={social.link} target="_blank">
-                            <Image
-                                src={social.src}
-                                alt={social.name}
-                                width={100}
-                                height={100}
-                                className="object-contain"
-                            />
-                        </Link>
-                        <p className="mt-2 text-black font-semibold">
-                            {social.name}
-                        </p>
-                    </div>
-                ))}
-            </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-4 mt-10 text-[#4A2C1D]">
-                Messaging Options
-            </h2>{" "}
-            {/* Updated color and size */}
-            <p className="text-lg md:text-xl text-center mb-8">
-                Chat with us on these platforms!
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {messagingLinks.map((messaging) => (
-                    <div
-                        key={messaging.name}
-                        className="flex flex-col items-center bg-white p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
-                    >
-                        {messaging.link ? (
-                            <div
-                                onClick={
-                                    messaging.name === "WeChat"
-                                        ? handleWeChatClick
-                                        : undefined
-                                }
-                                className="cursor-pointer"
-                            >
+            {/* Set the background color here */}
+            <div className="my-14 px-4 flex flex-col items-center w-[100%] md:w-[60%]">
+                <h1
+                    className="text-4xl md:text-5xl font-bold mb-6 text-[#F86A4A]"
+                    style={{ fontFamily: "Poppins" }}
+                >
+                    Enjoy Your Coffee!
+                </h1>
+                <p
+                    className="text-lg md:text-xl text-center mb-12"
+                    style={{ fontFamily: "Poppins" }}
+                >
+                    Follow us on our social media platforms to stay updated.
+                </p>
+                <div className="grid grid-cols-2 w-full md:grid-cols-3 gap-4 ">
+                    {socialMediaLinks.map((social) => (
+                        <div
+                            key={social.name}
+                            className="flex flex-col items-center p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                        >
+                            <Link href={social.link} target="_blank">
                                 <Image
-                                    src={messaging.src}
-                                    alt={messaging.name}
-                                    width={100}
-                                    height={100}
-                                    className="object-contain"
-                                />
-                            </div>
-                        ) : (
-                            <Link href={messaging.link} target="_blank">
-                                <Image
-                                    src={messaging.src}
-                                    alt={messaging.name}
+                                    src={social.src}
+                                    alt={social.name}
                                     width={100}
                                     height={100}
                                     className="object-contain"
                                 />
                             </Link>
-                        )}
-                        <p className="mt-2 text-black font-semibold">
-                            {messaging.name}
-                        </p>
-                    </div>
-                ))}
+                            <p className="mt-2 text-black font-semibold">
+                                {social.name}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>
-            <div className="mt-10">
-                <Image
-                    src="/coffee-cup.png"
-                    alt="Cup"
-                    width={200}
-                    height={200}
-                    className="object-contain"
-                />
+            <div className="my-14 px-4 flex flex-col items-center w-[100%] md:w-[60%]">
+                <h2
+                    className="text-4xl md:text-5xl font-bold mb-6 text-[#4A2C1D]"
+                    style={{ fontFamily: "Poppins" }}
+                >
+                    Messaging Options
+                </h2>{" "}
+                {/* Updated color and size */}
+                <p
+                    className="text-lg md:text-xl text-center mb-12"
+                    style={{ fontFamily: "Poppins" }}
+                >
+                    Chat with us on these platforms!
+                </p>
+                <div className="grid grid-cols-2 w-full md:grid-cols-3 gap-4">
+                    {messagingLinks.map((messaging) => (
+                        <div
+                            key={messaging.name}
+                            className="flex flex-col items-center p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                        >
+                            {messaging.link ? (
+                                <div
+                                    onClick={
+                                        messaging.name === "WeChat"
+                                            ? handleWeChatClick
+                                            : undefined
+                                    }
+                                    className="cursor-pointer"
+                                >
+                                    <Image
+                                        src={messaging.src}
+                                        alt={messaging.name}
+                                        width={100}
+                                        height={100}
+                                        className="object-contain"
+                                    />
+                                </div>
+                            ) : (
+                                <Link href={messaging.link} target="_blank">
+                                    <Image
+                                        src={messaging.src}
+                                        alt={messaging.name}
+                                        width={100}
+                                        height={100}
+                                        className="object-contain"
+                                    />
+                                </Link>
+                            )}
+                            <p className="mt-2 text-black font-semibold">
+                                {messaging.name}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+                <div className="mt-10">
+                    <Image
+                        src="/coffee-cup.png"
+                        alt="Cup"
+                        width={200}
+                        height={200}
+                        className="object-contain"
+                    />
+                </div>
             </div>
             {showModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
