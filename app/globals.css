@@ -5,204 +5,205 @@
 
 /* Font setup */
 body {
-  font-family: "Poppins", Arial, sans-serif;
+    font-family: "Poppins", Arial, sans-serif;
+    overscroll-behavior: none;
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #222222;
-  --primary: #8B4513; /* Deep coffee brown */
-  --secondary: #D4A373; /* Light mocha */
-  --accent: #FFFAF0; /* Soft cream background */
+    --background: #ffffff;
+    --foreground: #222222;
+    --primary: #8b4513; /* Deep coffee brown */
+    --secondary: #d4a373; /* Light mocha */
+    --accent: #fffaf0; /* Soft cream background */
 }
 
 body {
-  @apply bg-accent text-foreground;
+    @apply bg-accent text-foreground;
 }
 
 /* Navbar styling */
 nav a {
-  @apply text-gray-800 hover:text-primary font-semibold transition-colors duration-200;
+    @apply font-semibold transition-colors duration-200;
 }
 nav a.nav-link {
-  padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem;
+}
+
+header nav a {
+    @apply text-white hover:text-primary;
 }
 
 /* Hero Section */
 .hero-container {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
 }
 
 .hero-container h2 {
-  font-size: 3rem;
-  line-height: 1.2;
+    font-size: 3rem;
+    line-height: 1.2;
 }
 
 .hero-container p {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  max-width: 28rem;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    max-width: 28rem;
 }
 
 /* Button Styles */
 .apply-button {
-  @apply bg-primary text-white rounded-full px-6 py-3 font-semibold transition-all duration-300;
+    @apply bg-primary text-white rounded-full px-6 py-3 font-semibold transition-all duration-300;
 }
 .apply-button:hover {
-  @apply bg-secondary;
-  transform: scale(1.05);
+    @apply bg-secondary;
+    transform: scale(1.05);
 }
 
 /* Cup Animation Styles */
 .cup {
-  transition: transform 0.1s ease-in-out; /* Smooth animation */
-  position: absolute; /* Ensure positioning is absolute for scroll effect */
+    transition: transform 0.1s ease-in-out; /* Smooth animation */
+    position: absolute; /* Ensure positioning is absolute for scroll effect */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 640px) {
-  .hero-container h2 {
-    font-size: 2.5rem;
-  }
-  .hero-container p {
-    font-size: 1rem;
-  }
-}
-
-/* Navbar adjustments for mobile */
-header {
-  @apply fixed top-0 left-0 w-full p-4 z-50 flex justify-between items-center;
+    .hero-container h2 {
+        font-size: 2.5rem;
+    }
+    .hero-container p {
+        font-size: 1rem;
+    }
 }
 
 button {
-  @apply text-primary;
+    @apply text-primary;
 }
 
 .competition__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 /* Adjust header styles for smaller devices */
 /* Keep desktop alignment intact */
 .grid-cols-3 {
-  grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 /* Mobile adjustments */
 @media (max-width: 767px) {
-  header nav ul {
-    flex-direction: column;
-  }
+    header nav ul {
+        flex-direction: column;
+    }
 
-  .flex-col {
-    flex-direction: column;
-  }
+    .flex-col {
+        flex-direction: column;
+    }
 
-  /* Adjust text and image sizes for mobile */
-  h1 {
-    font-size: 1.8rem;
-  }
+    /* Adjust text and image sizes for mobile */
+    h1 {
+        font-size: 1.8rem;
+    }
 
-  h2 {
-    font-size: 1.2rem;
-  }
+    h2 {
+        font-size: 1.2rem;
+    }
 
-  p {
-    font-size: 0.9rem;
-  }
+    p {
+        font-size: 0.9rem;
+    }
 
-  .apply__button {
-    padding: 0.5rem 1.5rem;
-    font-size: 0.9rem;
-  }
+    .apply__button {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
 
-  .grid-cols-3 {
-    grid-template-columns: 1fr;
-  }
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
 }
 
 .slideshow {
-  display: flex;
-  overflow-x: scroll;
-  gap: 20px;
-  padding: 20px;
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+    padding: 20px;
 }
 
 .slide-container {
-  min-width: 300px;
-  flex: 1;
+    min-width: 300px;
+    flex: 1;
 }
 
 /* Global Styles */
 body {
-  font-family: 'Poppins', sans-serif;
-  color: #333;
+    font-family: "Poppins", sans-serif;
+    color: #333;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 a:hover {
-  color: #D2691E;
+    color: #d2691e;
 }
 
 /* Button Styling */
 .apply-btn {
-  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .apply-btn:hover {
-  background-color: #B4571A;
-  transform: scale(1.05);
+    background-color: #b4571a;
+    transform: scale(1.05);
 }
 
 /* Global Styles */
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif; /* Set a default font-family */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /* Set a default font-family */
 }
 
 /* Flexbox Centering */
 .flex {
-  display: flex;
+    display: flex;
 }
 
 .items-center {
-  align-items: center;
+    align-items: center;
 }
 
 .justify-center {
-  justify-content: center;
+    justify-content: center;
 }
 
 /* Responsive Container */
 .beneforyou__container {
-  max-width: 1200px; /* Set a maximum width for the container */
-  margin: 0 auto; /* Center the container */
-  padding: 20px; /* Add some padding */
+    max-width: 1200px; /* Set a maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add some padding */
 }
 
 /* Card Styles */
 .bean__text__wrapper {
-  background-color: #D35400; /* Background color for the text area */
-  color: white; /* Text color */
-  border-radius: 12px; /* Rounded corners */
-  padding: 16px; /* Padding around the text */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add some shadow */
+    background-color: #d35400; /* Background color for the text area */
+    color: white; /* Text color */
+    border-radius: 12px; /* Rounded corners */
+    padding: 16px; /* Padding around the text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add some shadow */
 }
 
 /* Responsive Text Sizes */
 @media (max-width: 640px) {
-  .beanforyou__container {
-    display: flex;
-    flex-direction: column;
-  }
-  .bean__text__wrapper {
-    width: 100%;
-  }
+    .beanforyou__container {
+        display: flex;
+        flex-direction: column;
+    }
+    .bean__text__wrapper {
+        width: 100%;
+    }
 }
