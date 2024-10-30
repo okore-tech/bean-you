@@ -1,5 +1,6 @@
 // "use client";
 
+import Navbar from "@/components/ui/MobileNavBar";
 import ConnectAndChat from "./connect-and-chat/page";
 // import ConnectPage from "./connect-page/page";
 import FaceOfBeanYou from "./face-of-you/page";
@@ -130,19 +131,24 @@ import HeroPage from "./hero/page";
 //   );
 // }
 export default function Homepage() {
-  return (
-    <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
-      <div id="hero" className="snap-start">
-        <HeroPage />
-      </div>
-      <div id="face-of-bean-you" className="snap-start">
-        <FaceOfBeanYou />
-      </div>
-      <div id="connect-and-chat" className="snap-start">
-        <ConnectAndChat />
-      </div>
-      <Footer />
-    </div>
-  )
-  {/* <ConnectPage/> */}
+    return (
+        <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
+            <div id="hero" className="snap-start">
+                <Navbar />
+            </div>
+            <div id="hero" className="snap-start">
+                <HeroPage />
+            </div>
+            <div id="face-of-bean-you" className="snap-start">
+                <FaceOfBeanYou />
+            </div>
+            <div id="connect-and-chat" className="snap-start">
+                <ConnectAndChat />
+            </div>
+            <Footer />
+        </div>
+    );
+    {
+        /* <ConnectPage/> */
+    }
 }
