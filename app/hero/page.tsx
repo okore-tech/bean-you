@@ -38,7 +38,7 @@ export default function HeroPage() {
   };
 
   return (
-    <div className={`hero__container h-screen bg-[#6C360C] text-white relative overflow-hidden flex flex-col ${poppins.className}`}>
+    <div className={`hero__container h-screen bg-[#6C360C] pt-14 text-white relative overflow-hidden flex flex-col ${poppins.className}`}>
       <div className="relative z-10 flex flex-col h-full">
         <main className="flex-grow container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-8 relative">
           {/* Hero Image (Girl) - Desktop View */}
