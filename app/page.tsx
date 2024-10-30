@@ -145,7 +145,9 @@ export default function Homepage() {
             <div id="connect-and-chat" className="snap-start">
                 <ConnectAndChat />
             </div>
-            <Footer />
+            <div className="snap-start">
+                <Footer />
+            </div>
         </div>
     );
     {
