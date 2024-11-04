@@ -42,6 +42,11 @@ const socialMediaLinks = [
         src: "/imageR.png",
         link: "https://www.reddit.com/user/Bean__You/",
     },
+    {
+        name: "LinkedIn", // New LinkedIn entry
+        src: "/logos--linkedin-icon.png", // Add your LinkedIn icon source here
+        link: "https://www.linkedin.com/company/beanyouofficial/", // Update with your LinkedIn URL
+    },
 ];
 
 const messagingLinks = [
@@ -75,10 +80,9 @@ export default function SocialMediaPage() {
     };
 
     return (
-        <main className="flex flex-col items-center justify-center bg-[#FFFDD0]">
-            {" "}
+        <div className="social-media-container">
+        <main className=" textured-background flex flex-col items-center justify-center min-h-screen">
             <Navbar />
-            {/* Set the background color here */}
             <div className="my-14 px-4 flex flex-col items-center w-[100%] md:w-[60%]">
                 <h1
                     className="text-4xl md:text-5xl font-bold mb-6 text-[#F86A4A]"
@@ -96,7 +100,7 @@ export default function SocialMediaPage() {
                     {socialMediaLinks.map((social) => (
                         <div
                             key={social.name}
-                            className="flex flex-col items-center p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                            className="icon-container flex flex-col items-center p-4 bg-[#FFE5B4] rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
                         >
                             <Link href={social.link} target="_blank">
                                 <Image
@@ -120,8 +124,7 @@ export default function SocialMediaPage() {
                     style={{ fontFamily: "Poppins" }}
                 >
                     Messaging Options
-                </h2>{" "}
-                {/* Updated color and size */}
+                </h2>
                 <p
                     className="text-lg md:text-xl text-center mb-12"
                     style={{ fontFamily: "Poppins" }}
@@ -132,43 +135,31 @@ export default function SocialMediaPage() {
                     {messagingLinks.map((messaging) => (
                         <div
                             key={messaging.name}
-                            className="flex flex-col items-center p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                            className="icon-container flex flex-col items-center p-4 bg-[#FFE5B4] rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
                         >
-                            {messaging.link ? (
-                                <div
-                                    onClick={
-                                        messaging.name === "WeChat"
-                                            ? handleWeChatClick
-                                            : undefined
-                                    }
-                                    className="cursor-pointer"
-                                >
-                                    <Image
-                                        src={messaging.src}
-                                        alt={messaging.name}
-                                        width={100}
-                                        height={100}
-                                        className="object-contain"
-                                    />
-                                </div>
-                            ) : (
-                                <Link href={messaging.link} target="_blank">
-                                    <Image
-                                        src={messaging.src}
-                                        alt={messaging.name}
-                                        width={100}
-                                        height={100}
-                                        className="object-contain"
-                                    />
-                                </Link>
-                            )}
+                            <div
+                                onClick={
+                                    messaging.name === "WeChat"
+                                        ? handleWeChatClick
+                                        : undefined
+                                }
+                                className="cursor-pointer"
+                            >
+                                <Image
+                                    src={messaging.src}
+                                    alt={messaging.name}
+                                    width={100}
+                                    height={100}
+                                    className="object-contain"
+                                />
+                            </div>
                             <p className="mt-2 text-black font-semibold">
                                 {messaging.name}
                             </p>
                         </div>
                     ))}
                 </div>
-                <div className="mt-10">
+                <div className="mt-10 animate-bounce">
                     <Image
                         src="/coffee-cup.png"
                         alt="Cup"
@@ -206,5 +197,6 @@ export default function SocialMediaPage() {
             )}
             <Footer />
         </main>
+        </div>
     );
 }

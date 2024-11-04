@@ -207,3 +207,11 @@ body {
         width: 100%;
     }
 }
+.social-media-container {
+    background-image: url('/social-bg1.jpeg');
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--foreground); /* Ensures text is readable over the background */
+    padding: 2rem; /* Adjust padding as needed for spacing */
+}
