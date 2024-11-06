@@ -1,112 +1,58 @@
 "use client";
 
 import React, { useState } from "react";
+import Modal from "@/components/ui/Modal";
 
 export default function ConnectAndChat() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        comment: "",
-    });
+  const [showModal, setShowModal] = useState(false);
 
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-        setFormData({ ...formData, [e.target.id]: e.target.value });
-    };
+  const openModal = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-red-500 to-yellow-500 py-8 px-3 md:px-8">
+      <div className="w-full max-w-lg bg-white rounded-xl shadow-lg p-8 md:p-12 text-center">
+        <h1 className="text-4xl text-gray-800 font-bold mb-6">
+          Connect and Chat
+        </h1>
 
-        try {
-            const response = await fetch("/api/send-form", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
+        <p className="text-gray-600 mb-4">
+          Want to get in touch with us? Fill out the form to connect.
+        </p>
 
-            if (response.ok) {
-                alert("Form submitted successfully!");
-                setFormData({ name: "", email: "", comment: "" });
-            } else {
-                alert("Failed to submit the form.");
-            }
-        } catch (error) {
-            console.error("Error submitting form:", error);
-            alert("An error occurred. Please try again.");
-        }
-    };
+        <button
+          onClick={openModal}
+          className="bg-red-600 text-white font-bold rounded-full px-8 py-4 transition-all transform hover:bg-red-700 hover:scale-105 shadow-xl focus:outline-none"
+        >
+          Open Form
+        </button>
 
-    return (
-        <div className="bg-red-900 min-h-screen flex items-center justify-center py-8 px-3 md:px-8">
-            <div className="w-full max-w-lg bg-red-800 rounded-3xl py-8 px-3 md:px-8">
-                <h1 className="text-3xl text-white mb-6 text-center">
-                    Connect and Chat
-                </h1>
-
-                {/* Contact Form */}
-                <form
-                    onSubmit={handleSubmit}
-                    className="bg-red-700 rounded-3xl p-6"
-                >
-                    <div className="mb-7">
-                        <label
-                            htmlFor="name"
-                            className="text-white font-semibold block mb-1"
-                        >
-                            Your Name
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            className="w-full bg-transparent border-b border-white text-white focus:outline-none py-2"
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <div className="mb-7">
-                        <label
-                            htmlFor="email"
-                            className="text-white font-semibold block mb-1"
-                        >
-                            Your Email
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            className="w-full bg-transparent border-b border-white text-white focus:outline-none py-2"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <div className="mb-6">
-                        <label
-                            htmlFor="comment"
-                            className="text-white font-semibold block mb-4"
-                        >
-                            Any questions or comments?
-                        </label>
-                        <textarea
-                            id="comment"
-                            rows={6}
-                            className="w-full bg-red-300 rounded-xl p-2 text-black resize-none focus:outline-none"
-                            value={formData.comment}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        className="bg-red-500 text-white font-bold rounded-full px-4 py-3 hover:bg-red-600 transition-colors w-full"
-                    >
-                        SUBMIT
-                    </button>
-                </form>
-            </div>
-        </div>
-    );
+        {/* Modal with the link to Google Form */}
+        <Modal show={showModal} onClose={closeModal}>
+          <div className="p-6 text-center">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+              Ready to Connect?
+            </h2>
+            <p className="text-lg text-gray-600 mb-4">
+              Click the button below to open the form in a new tab.
+            </p>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScrne492vXzPcpdsRhqDs7Ii7kDCWaPpT2MDEBUVD98wuGNjw/viewform?usp=sf_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white font-semibold py-3 px-8 rounded-full transition-colors hover:bg-blue-700 mb-4"
+            >
+              Open Google Form
+            </a>
+            <button
+              onClick={closeModal}
+              className="bg-gray-500 text-white font-semibold py-3 px-8 rounded-full transition-colors hover:bg-gray-600"
+            >
+              Close
+            </button>
+          </div>
+        </Modal>
+      </div>
+    </div>
+  );
 }
