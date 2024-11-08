@@ -11,7 +11,7 @@ export default function ConnectAndChat() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-red-500 to-yellow-500 py-8 px-3 md:px-8">
-      <div className="w-full max-w-lg bg-white rounded-xl shadow-lg p-8 md:p-12 text-center">
+      <div className="w-full max-w-lg bg-white/40 backdrop-blur-md rounded-xl shadow-lg p-8 md:p-12 text-center">
         <h1 className="text-4xl text-gray-800 font-bold mb-6">
           Connect and Chat
         </h1>
