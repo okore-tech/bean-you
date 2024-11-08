@@ -1,14 +1,17 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-export default function Modal({ show, onClose, children }) {
+interface ModalProps {
+  show: boolean;
+  onClose: () => void;
+  children: ReactNode;
+}
+
+export default function Modal({ show, onClose, children }: ModalProps) {
   if (!show) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div
-        className="relative p-8 w-full max-w-lg rounded-lg shadow-xl bg-white/30 backdrop-blur-md border border-white/20"
-        style={{ backgroundImage: "url('/path/to/email.jpg')" }}
-      >
+      <div className="relative p-8 w-full max-w-lg rounded-lg shadow-xl bg-white/30 backdrop-blur-md border border-white/20">
         {children}
         <button
           onClick={onClose}

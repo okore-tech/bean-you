@@ -52,18 +52,18 @@ const socialMediaLinks = [
 const messagingLinks = [
     {
         name: "WhatsApp",
-        src: "/whatsapp-icon.png",
+        src: "/whatsapp.png",
         link: "https://whatsapp.com/channel/0029Vanh5ybFHWq6S79YRb1q/",
     },
     { name: "WeChat", src: "/wechat-qr.png", link: "/wechat-qr.jpg" },
     {
         name: "Telegram",
-        src: "/ticon.png",
+        src: "/telegram.png",
         link: "https://t.me/+YIxx1c2wXzQxOGZk",
     },
     {
         name: "Snapchat",
-        src: "/snapchat-icon.png",
+        src: "/snap.png",
         link: "https://www.snapchat.com/add/beanyouofficial?share_id=BLTpB3OHA1c&locale=en-GB",
     },
 ];
@@ -80,11 +80,13 @@ export default function SocialMediaPage() {
     };
 
     return (
-        <div className="social-media-container flex flex-col min-h-screen">
-            {/* Add Navbar here to show at the top */}
+        <div className="flex flex-col min-h-screen">
+        {/* Header: Make Navbar sticky and full-width */}
+        <header className=" top-0 w-full z-50">
             <Navbar />
+        </header>
 
-            <main className="textured-background flex flex-col items-center justify-between flex-grow">
+        <main className="flex flex-col items-center justify-between flex-grow bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/social-bg1.jpeg')" }}>
                 {/* Content */}
                 <div className="my-14 px-4 flex flex-col items-center w-[100%] md:w-[60%]">
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#F86A4A]" style={{ fontFamily: "Poppins" }}>
@@ -148,8 +150,9 @@ export default function SocialMediaPage() {
                 )}
             </main>
 
-            {/* Add Footer here to fill the bottom */}
-            <Footer />
+            <footer className="bottom-0 w-full">
+                <Footer />
+            </footer>
         </div>
     );
 }

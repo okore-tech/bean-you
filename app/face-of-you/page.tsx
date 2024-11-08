@@ -28,7 +28,7 @@ export default function Page() {
   }, []);
 
   const handleButtonClick = () => {
-    router.push("/CompetitionPage");
+    router.push("/competition");
   };
 
   return (
