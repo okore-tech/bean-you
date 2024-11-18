@@ -10,16 +10,19 @@ export default function ConnectAndChat() {
   const closeModal = () => setShowModal(false);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#6C360C] to-[#F86A4A] p-8 overflow-hidden">
-      {/* Sleek Decorative Elements */}
+    <div
+      className={`relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#6C360C] to-[#F86A4A] p-8 overflow-hidden ${
+        showModal ? "backdrop-blur-md" : ""
+      }`}
+    >
+      {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Light flare effect */}
         <div className="absolute top-20 right-20 w-48 h-48 bg-gradient-to-br from-white/30 to-transparent rounded-full blur-3xl opacity-40 animate-pulse"></div>
         <div className="absolute bottom-32 left-24 w-64 h-64 bg-gradient-to-tr from-white/20 to-transparent rounded-full blur-2xl opacity-30 animate-spin-slow"></div>
       </div>
 
-      {/* Glassmorphism Container */}
-      <div className="w-full max-w-2xl bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] p-10 md:p-14 text-left">
+      {/* Main Connect & Chat Content */}
+      <div className="w-full max-w-2xl bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl shadow-lg p-10 md:p-14 text-left">
         <h1
           className="text-5xl font-extrabold mb-6"
           style={{
@@ -41,9 +44,9 @@ export default function ConnectAndChat() {
           Open Form
         </button>
 
-        {/* Modal with Enhanced Glassmorphism Effect */}
+        {/* Centered Modal */}
         <Modal show={showModal} onClose={closeModal}>
-          <div className="p-8 bg-white/20 backdrop-blur-2xl border border-white/30 rounded-2xl shadow-[0_4px_24px_0_rgba(31,38,135,0.25)]">
+          <div className="text-center">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">
               Ready to Connect?
             </h2>
@@ -51,8 +54,7 @@ export default function ConnectAndChat() {
               Click the button below to open the form in a new tab.
             </p>
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLScrne492vXzPcpdsRhqDs7Ii7kDCWaPpT2MDEBUVD98wuGNjw/viewform?usp=sf_link"
-              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSehxIEwgR65NVLP_fwGjVtwDqVakwupx0ZyxECK50QrRJjE9g/viewform?usp=sf_link"
               rel="noopener noreferrer"
               className="bg-orange-500 text-white font-semibold py-3 px-8 rounded-full transition-colors hover:bg-orange-600"
             >

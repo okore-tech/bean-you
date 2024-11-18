@@ -118,16 +118,22 @@ export default function SocialMediaPage() {
                         Chat with us on these platforms!
                     </p>
                     <div className="grid grid-cols-2 w-full md:grid-cols-3 gap-4">
-                        {messagingLinks.map((messaging) => (
-                            <div
-                                key={messaging.name}
-                                className="icon-container flex flex-col items-center p-4 bg-[#FFE5B4] rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
-                            >
-                                <div onClick={messaging.name === "WeChat" ? handleWeChatClick : undefined} className="cursor-pointer">
-                                    <Image src={messaging.src} alt={messaging.name} width={100} height={100} className="object-contain" />
-                                </div>
-                                <p className="mt-2 text-black font-semibold">{messaging.name}</p>
-                            </div>
+    {messagingLinks.map((messaging) => (
+        <div
+            key={messaging.name}
+            className="icon-container flex flex-col items-center p-4 bg-[#FFE5B4] rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105"
+        >
+            {messaging.name === "WeChat" ? (
+                <div onClick={handleWeChatClick} className="cursor-pointer">
+                    <Image src={messaging.src} alt={messaging.name} width={100} height={100} className="object-contain" />
+                </div>
+            ) : (
+                <a href={messaging.link} target="_blank" rel="noopener noreferrer">
+                    <Image src={messaging.src} alt={messaging.name} width={100} height={100} className="object-contain" />
+                </a>
+            )}
+            <p className="mt-2 text-black font-semibold">{messaging.name}</p>
+        </div>
                         ))}
                     </div>
                     <div className="mt-10 animate-bounce">

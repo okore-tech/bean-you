@@ -105,7 +105,7 @@ export default function HeroPage() {
                 </main>
 
                 {/* Coffee Cup Image */}
-                <div className="coffee-cup fixed bottom-4 right-20 w-80 h-80 md:w-120 md:h-120 transform transition-all duration-300 ease-in-out">
+                <div className="coffee-cup fixed bottom-4 right-20 w-40 h-40 md:w-120 md:h-120 transform transition-all duration-300 ease-in-out">
                     <Image
                         src="/coffee-cup.png"
                         alt="Bean You coffee cup"
