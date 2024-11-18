@@ -1,60 +1,63 @@
 "use client";
 
-import React, { useEffect, useState, useCallback, useMemo } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/ui/MobileNavBar";
 import Footer from "../footer/page";
 
 const CompetitionPage = () => {
-    const slides = useMemo(
-        () => [
-            {
-                title: "African Hair",
-                description: "Explore unique styles, history, and culture.",
-                media: [
-                    { type: "image", src: "/malika 3.jpg" },
-                    { type: "image", src: "/hair2.png.jpg" },
-                    { type: "image", src: "/person1.png.jpg" },
-                    { type: "image", src: "/hair5.jpeg" },
-                    { type: "image", src: "/hair3.jpeg" },
-                ],
-            },
-            {
-                title: "TikTok Post",
-                description: "Unbothered #beanwoke",
-                media: [
-                    { type: "image", src: "/malika 2.jpg" },
-                    { type: "image", src: "/unbothered malika.jpeg" },
-                ],
-            },
-            {
-                title: "A Day in the Life of a Vet Graduate",
-                description: "Catch the vibe with #BeanYou on X",
-                media: [{ type: "video", src: "/vet.mp4" }],
-            },
-        ],
-        []
-    );
+    const carousels = [
+        {
+            title: "Instagram",
+            description: "Explore unique styles, history, and culture.",
+            media: [
+                { type: "image", src: "/malika 3.jpg", caption: "@style_inspo #Malika" },
+                { type: "image", src: "/hair2.png.jpg", caption: "@hairlove #TexturedBeauty" },
+                { type: "image", src: "/person1.png.jpg", caption: "@authentic_beauty #NaturalVibes" },
+                { type: "image", src: "/hair5.jpeg", caption: "@fashionista #Trendsetter" },
+                { type: "image", src: "/hair3.jpeg", caption: "@curly_girl #CurlsForDays" },
+            ],
+        },
+        {
+            title: "TikTok Posts",
+            description: "Unbothered #beanwoke",
+            media: [
+                { type: "image", src: "/malika 2.jpg", caption: "Unbothered ✌️ #BeanWoke" },
+                { type: "image", src: "/unbothered malika.jpeg", caption: "Malika vibes 💅 #GlowUp" },
+            ],
+        },
+        {
+            title: "TikTok Shorts",
+            description: "A Day in the Life of a Vet Graduate",
+            media: [
+                { type: "video", src: "/vet.mp4", caption: "Vet Life 🐾 #DayInLife" },
+                { type: "video", src: "/vet.mp4", caption: "Animal Lover ❤️ #VetJourney" },
+            ],
+        },
+    ];
 
-    const [currentMediaIndex, setCurrentMediaIndex] = useState([0, 0, 0]);
+    const [activeCarousel, setActiveCarousel] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    const updateSlides = useCallback(() => {
-        setCurrentMediaIndex((prevIndices) =>
-            prevIndices.map((index, i) => (index + 1) % slides[i].media.length)
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) =>
+            (prevIndex + 1) % carousels[activeCarousel].media.length
         );
-    }, [slides]);
+    };
 
-    useEffect(() => {
-        const interval = setInterval(updateSlides, 3000);
-        return () => clearInterval(interval);
-    }, [updateSlides]);
-
+    const handlePrevious = () => {
+        setCurrentIndex((prevIndex) =>
+            (prevIndex - 1 + carousels[activeCarousel].media.length) %
+            carousels[activeCarousel].media.length
+        );
+    };
     return (
         <div className="bg-gradient-to-b from-[#0f100f] to-[#6C360C] text-white min-h-screen">
             <Navbar />
-            {/* "Be The Face" Section */}
-            <section className="text-center p-8">
+
+             {/* "Be The Face" Section */}
+             <section className="text-center p-8">
                 <div className="flex flex-col items-center">
                     <h2
                         className="text-5xl md:text-6xl font-bold my-7"
@@ -127,68 +130,69 @@ const CompetitionPage = () => {
                 </div>
             </section>
 
-            {/* Featured Entries */}
-            <section className="p-4 md:p-8">
+            {/* Carousel Switcher */}
+            <section className="p-4">
                 <div className="text-center mb-8">
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#FF7F50] relative flex justify-center items-center space-x-2">
-                        <span>Featured Entries</span>
-                        <span className="ml-2">❤️</span>
-                    </h2>
-                    {/* Category Tabs */}
-                    <div className="flex justify-center mt-4 space-x-4 text-md md:text-lg">
-                        <button className="px-4 py-2 bg-[#FFC1A1] text-black rounded-full font-semibold">
-                            All
-                        </button>
-                        <button className="text-[#FFC1A1]">Hair</button>
-                        <button className="text-[#FFC1A1]">Style</button>
-                        <button className="text-[#FFC1A1]">Trends</button>
-                        <button className="text-[#FFC1A1]">Sport</button>
-                        <button className="text-[#FFC1A1]">Travel</button>
-                        <button className="text-[#FFC1A1]">Art</button>
+                    <h2 className="text-4xl font-bold text-[#FF7F50] mb-4">Featured Entries</h2>
+                    <div className="flex justify-center space-x-4 mb-6">
+                        {carousels.map((carousel, index) => (
+                            <button
+                                key={index}
+                                onClick={() => {
+                                    setActiveCarousel(index);
+                                    setCurrentIndex(0);
+                                }}
+                                className={`px-4 py-2 rounded-full transition ${
+                                    activeCarousel === index
+                                        ? "bg-[#FF7F50] text-black"
+                                        : "bg-gray-700 text-white"
+                                }`}
+                            >
+                                {carousel.title}
+                            </button>
+                        ))}
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:h-[800px]">
-                    {slides.map((slide, index) => (
-                        <div
-                            key={index}
-                            className="bg-[#562d0b] p-4 rounded-lg shadow-lg flex flex-col h-full"
+                <div className="relative w-full max-w-lg mx-auto">
+                    <div className="overflow-hidden rounded-lg shadow-lg">
+                        {carousels[activeCarousel].media[currentIndex].type === "image" ? (
+                            <Image
+                                src={carousels[activeCarousel].media[currentIndex].src}
+                                alt="Carousel Media"
+                                width={600}
+                                height={400}
+                                className="object-cover transition-transform duration-500 hover:scale-105"
+                            />
+                        ) : (
+                            <video
+                                src={carousels[activeCarousel].media[currentIndex].src}
+                                controls
+                                className="w-full h-auto"
+                            />
+                        )}
+                    </div>
+
+                    <div className="text-center mt-4">
+                        <p className="italic text-gray-300">
+                            {carousels[activeCarousel].media[currentIndex].caption}
+                        </p>
+                    </div>
+
+                    <div className="flex justify-between mt-6">
+                        <button
+                            onClick={handlePrevious}
+                            className="px-4 py-2 rounded-full bg-gray-700 text-white hover:bg-[#FF7F50]"
                         >
-                            <div className="text-center relative h-[600px] md:h-full w-full lg:hover:scale-[1.05] lg:transition-transform duration-300">
-                                {slide.media[currentMediaIndex[index]].type ===
-                                "image" ? (
-                                    <Image
-                                        src={
-                                            slide.media[
-                                                currentMediaIndex[index]
-                                            ].src
-                                        }
-                                        alt={slide.title}
-                                        fill
-                                        className="w-full h-full object-cover rounded-lg"
-                                    />
-                                ) : (
-                                    <video
-                                        src={
-                                            slide.media[
-                                                currentMediaIndex[index]
-                                            ].src
-                                        }
-                                        controls
-                                        className="absolute top-0 w-full h-full rounded-lg"
-                                    />
-                                )}
-                            </div>
-                            <div className="h-fit my-8 flex flex-col gap-2">
-                                <h3 className="text-xl font-bold">
-                                    {slide.title}
-                                </h3>
-                                <p className="text-sm mt-2">
-                                    {slide.description}
-                                </p>
-                            </div>
-                        </div>
-                    ))}
+                            Previous
+                        </button>
+                        <button
+                            onClick={handleNext}
+                            className="px-4 py-2 rounded-full bg-gray-700 text-white hover:bg-[#FF7F50]"
+                        >
+                            Next
+                        </button>
+                    </div>
                 </div>
             </section>
 
