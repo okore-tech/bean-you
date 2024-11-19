@@ -40,7 +40,7 @@ const socialMediaLinks = [
     {
         name: "Reddit",
         src: "/imageR.png",
-        link: "https://www.reddit.com/user/Bean__You/",
+        link: "https://www.reddit.com/user/BeanYouOfficial/",
     },
     {
         name: "LinkedIn",
