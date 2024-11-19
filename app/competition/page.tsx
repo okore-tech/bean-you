@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/ui/MobileNavBar";
 import Footer from "../footer/page";
 
 const CompetitionPage = () => {
-    const carousels = [
+    // Memoize carousels to avoid re-creating the array on every render
+    const carousels = useMemo(() => [
         {
             title: "Instagram",
             description: "Explore unique styles, history, and culture.",
@@ -33,7 +34,7 @@ const CompetitionPage = () => {
                 { type: "video", src: ["/vet.mp4"], caption: "Vet Life 🐾 #DayInLife" },
             ],
         },
-    ];
+    ], []);
 
     const [activeCarousel, setActiveCarousel] = useState(0);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -191,7 +192,7 @@ const CompetitionPage = () => {
                                     muted
                                     loop
                                     className="w-full h-full object-cover"
-                                    onClick={(e) => e.target.requestFullscreen()}
+                                    onClick={(e) => (e.target as HTMLVideoElement).requestFullscreen()}
                                 />
                             )}
                         </div>
