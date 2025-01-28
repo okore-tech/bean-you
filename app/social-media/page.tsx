@@ -37,11 +37,7 @@ const socialMediaLinks = [
         src: "/instagram-icon.png",
         link: "https://www.instagram.com/bean__you/",
     },
-    {
-        name: "Reddit",
-        src: "/imageR.png",
-        link: "https://www.reddit.com/user/BeanYouOfficial/",
-    },
+   
     {
         name: "LinkedIn",
         src: "/logos--linkedin-icon.png",
