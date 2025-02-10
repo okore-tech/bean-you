@@ -90,18 +90,6 @@ export default function HeroPage() {
                             </Button>
                         </div>
                     </div>
-
-                    {/* Coffee Splash Background */}
-                    {/* <div className="hero__coffee absolute left-0 z-0 w-full h-full opacity-100">
-                        <Image
-                            src="/image-coffee.png"
-                            alt="Coffee splash background"
-                            fill
-                            className="object-cover"
-                            style={{ objectPosition: "left bottom" }}
-                            priority
-                        />
-                    </div> */}
                 </main>
 
                 {/* Coffee Cup Image */}
@@ -113,11 +101,6 @@ export default function HeroPage() {
                         className="object-contain"
                     />
                 </div>
-
-                {/* Mobile Background Image
-                {isMobile && (
-                    <div className="absolute top-0 left-0 w-full h-full bg-[url('/image-girl.png')] bg-cover bg-no-repeat bg-center opacity-100" />
-                )} */}
             </div>
 
             <style jsx>{`

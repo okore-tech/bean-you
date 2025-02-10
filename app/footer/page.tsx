@@ -26,14 +26,21 @@ export default function Footer() {
             </nav>
             <div className="container mx-auto px-4 py-3">
                 <p className="text-center flex flex-col items-center">
-                    Terms and Conditions © beanyou.com 2024 | product of:{" "}
-                    <Image
-                        src="/logo-asili.png"
-                        alt="Asili Coffee"
-                        width={80}
-                        height={60}
-                        className="inline"
-                    />
+                    Terms and Conditions © beanyou.com 2025 | Partner to:{" "}
+                    <Link
+                        href="https://asiliestates.co.ke/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center"
+                    >
+                        <Image
+                            src="/logo-asili.png"
+                            alt="Asili Coffee"
+                            width={80}
+                            height={60}
+                            className="inline"
+                        />
+                    </Link>
                 </p>
             </div>
         </footer>
