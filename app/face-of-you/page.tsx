@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Mochiy_Pop_One } from "next/font/google";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const mochiyPopOne = Mochiy_Pop_One({
   weight: "400",
@@ -84,13 +85,14 @@ export default function FaceOfYouPage() {
                 transition={{ duration: 0.8 }}
                 className="absolute w-full h-full flex justify-center items-center"
               >
-                <Image
-                  src={slides[currentSlide].src}
-                  alt={slides[currentSlide].alt}
-                  width={400}
-                  height={400}
-                  className="rounded-2xl shadow-lg object-cover"
-                />
+               <Image
+  src={slides[currentSlide]?.src || ""}
+  alt={slides[currentSlide]?.alt || "Image not available"}
+  width={400}
+  height={400}
+  className="rounded-2xl shadow-lg object-cover"
+/>
+
               </motion.div>
             ) : (
               <motion.div
